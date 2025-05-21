@@ -953,6 +953,7 @@ int main(int argc, char **argv)
       logprintf(&mystuff, "  CUDA driver version       %d.%d\n", driver_major, driver_minor);
   }
 
+  /*
   if (drv_ver < CUDART_VERSION)
   {
       logprintf(&mystuff, "ERROR: current CUDA driver version is lower than the CUDA toolkit version used during compile!\n");
@@ -966,6 +967,7 @@ int main(int argc, char **argv)
       close_log(&mystuff);
       return 1;
   }
+      */
 
   if (cudaSetDevice(devicenumber) != cudaSuccess)
   {
