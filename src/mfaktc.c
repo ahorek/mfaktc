@@ -937,6 +937,13 @@ int main(int argc, char **argv)
 
   read_config(&mystuff);
 
+  CUresult code = cuInit(0);
+  if (code != cudaSuccess) {
+    logprintf(&mystuff, "ERROR: Cannot initialize CUDA! code: %d\n", code);
+    close_log(&mystuff);
+    return 1;
+  }
+
   int drv_ver, rt_ver;
   cudaRuntimeGetVersion(&rt_ver);
   cudaDriverGetVersion(&drv_ver);
